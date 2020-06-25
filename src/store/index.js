@@ -7,15 +7,21 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     peliculas: [],
-    peliculasSel: []
+    peliculasSel: [],
+    perfil:{}
   },
+  //el weon de los mandados las mutaciones realizan los cambios en el state
   mutations: {
     llenarPeliculas(state, peliculasGet) {
       state.peliculas = peliculasGet
     }, llenarPeliculasSel(state, peliculasSel) {
+      console.log(peliculasSel)
       state.peliculasSel = peliculasSel
-    },
+    },llenarPerfil(state,perfil){
+      state.perfil=perfil
+    }
   },
+  //las acciones llaman a las mutaciones con el comit
   actions: {
     async pelis({ commit }) {
       try {
@@ -28,6 +34,15 @@ export default new Vuex.Store({
       } catch (error) {
         console.error(error);
       }
+    },
+    async pelisSel({ commit },pelisSel) {
+        console.log("peru"+pelisSel)
+        commit('llenarPeliculasSel', pelisSel)
+
+    },
+    async cargarPerfil({commit}){
+      
+      commit('llenarPerfil',{nombre:"jurelito"})
     }
   }
 })

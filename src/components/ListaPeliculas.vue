@@ -25,7 +25,7 @@
         <strong>{{ selected }}</strong>
       </div>
       <div>
-        <b-button class="button" type="button" variant="info" @click="guardarFav(selected)">Guardar</b-button>
+        <b-button class="button" type="button" variant="info" @click="pelisSel(selected)">Guardar</b-button>
       </div>
     </b-sidebar>
   </div>
@@ -41,22 +41,21 @@ export default {
   },
   methods: {
     ...mapActions(["pelis"]),
-     async guardarFav(selected) {
-      try {
-        console.log(selected);
-        const peliculasSeleccionadas = selected;
-       // commit("llenarPeliculasSel", peliculasSeleccionadas);
-      } catch (error) {
-        console.error(error);
-      }
-    }
+    ...mapActions(["pelisSel"])
   },
   mounted() {
     this.pelis();
     console.log("HOLI");
   },
+
   actions: {
-   
+    async pelisSel(selected) {
+      try {              
+        commit("pelisSel", selected);
+      } catch (error) {
+        console.error(error);
+      }
+    }
   },
   data() {
     return {

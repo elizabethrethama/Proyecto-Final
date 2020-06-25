@@ -11,7 +11,7 @@
               <b-icon-person-circle animation="cylon"></b-icon-person-circle>
               <b-form>
                 <div class="text-left">
-                  <label for="feedback-user">Nombre</label>
+                  <label for="feedback-user" >Nombre</label>
                   <b-input></b-input>
                 </div>
                 <div class="text-left">
@@ -29,7 +29,7 @@
                 <hr />
                 <div class="text-center m-2">
                   <label for="feedback-user">Favoritos de la encuesta</label>
-                  <b-list-group v-for="item of selected" :key="item.index">
+                  <b-list-group v-for="item of peliculasSel" :key="item.index">
                     <b-list-group-item button>{{item}}}</b-list-group-item>
                   </b-list-group>
                 </div>
@@ -47,10 +47,18 @@
 import { mapState, mapActions } from "vuex";
 
 export default {
-  name: "Perfil",
+  name: "Perfil",  
   computed: {
-    ...mapState(["selected"])
+    ...mapState(["peliculasSel"]),
+   //...mapState(["perfil"]),
+    
+  },methods:{
+    //...mapActions(["cargarPerfil"])
+  },mounted(){
+   // this.cargarPerfil()
   }
+  
+  
 };
 </script>
 
