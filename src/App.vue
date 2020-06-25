@@ -14,7 +14,7 @@
                 <em>{{user.email}}</em>
               </template>
               <b-dropdown-item @click.prevent="cargarPerfil">
-                <b-icon-person-circle></b-icon-person-circle><a> Mi Perfil</a>
+                <b-icon-heart></b-icon-heart><a> Mis Favoritos</a>
               </b-dropdown-item>
               <b-dropdown-item v-b-toggle.sidebar-1>
                 <b-icon-star></b-icon-star><a> ¡Temporada de Fanarts!</a>

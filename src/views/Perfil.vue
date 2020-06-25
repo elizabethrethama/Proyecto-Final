@@ -28,13 +28,12 @@
                 </div>
                 <hr />
                 <div class="text-center m-2">
-                  <label for="feedback-user">Favoritos de la encuesta</label>
+                  <label for="feedback-user"><b>Favoritos de la encuesta</b></label>
                   <b-list-group v-for="item of peliculasSel" :key="item.index">
-                    <b-list-group-item button>{{item}}}</b-list-group-item>
+                    <b-list-group-item button>{{item}}</b-list-group-item>
                   </b-list-group>
                 </div>
                 <b-card-text></b-card-text>
-                <b-button class="button" type="submit" variant="info">Actualizar</b-button>
               </b-form>
             </b-card>
           </b-col>

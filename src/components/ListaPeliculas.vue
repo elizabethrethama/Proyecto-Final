@@ -1,13 +1,13 @@
 <template>
   <div>
-    <b-sidebar id="sidebar-1" title="Encuesta Dibujistica" shadow>
+    <b-sidebar class="sidebar" id="sidebar-1" title="Encuesta Dibujistica" shadow>
       <div class="px-4 py-2">
         <p>
-          ¿Cual es tu pelicula favorita del Studios Ghibli?
-          <b-icon-star></b-icon-star>¡Seleciona tu film favorito para crear un fan art en su honor!.
+          ¿Te gusta Studios Ghibli? <b-icon-heart></b-icon-heart>
+          ¡Seleciona tus peliculas favoritas para crear fan art en su honor!
         </p>
       </div>
-      <div class="px-4">
+      <div class="px-4 py-0 mb-0">
         <b-form-group label="Films:">
           <b-form-checkbox-group
             v-for="item of peliculas"
@@ -20,12 +20,8 @@
           </b-form-checkbox-group>
         </b-form-group>
       </div>
-      <div>
-        Seleccionados:
-        <strong>{{ selected }}</strong>
-      </div>
-      <div>
-        <b-button class="button" type="button" variant="info" @click="pelisSel(selected)">Guardar</b-button>
+      <div class="pb-2 text-center mx-4">
+        <b-button block type="button" class="btnActualizar" variant="danger" @click="pelisSel(selected)">Actualizar</b-button>
       </div>
     </b-sidebar>
   </div>
@@ -64,3 +60,11 @@ export default {
   }
 };
 </script>
+<style scoped>
+.btnActualizar{
+  background-color:  #e56ded;
+  color:white;
+  border-color: transparent;
+}
+
+</style>
