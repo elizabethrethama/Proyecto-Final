@@ -86,6 +86,12 @@ Mockup Vistas:
 ![favoritos](https://user-images.githubusercontent.com/60222751/85775002-610d7e00-b6ed-11ea-9122-76ba586ed8b9.JPG)
 
 
+Usuarios Firebase:
+
+- [ ] usuario.uno@gmail.com pass: 123456
+
+- [ ] usuario.dos@gmail.com pass: 654321
+
 - [ ] Project setup: npm install
 - [ ] Compiles and hot-reloads for development: npm run serve
 - [ ] Compiles and minifies for production: npm run build
