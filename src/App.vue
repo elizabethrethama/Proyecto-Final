@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <b-navbar toggleable="md" type="dark" variant="dark">
+    <b-navbar toggleable="lg" type="dark" variant="dark">
       <div>
         <img :src="images.rethama" />
       </div>
@@ -13,11 +13,11 @@
               <template v-slot:button-content>
                 <em>{{user.email}}</em>
               </template>
+                <b-dropdown-item v-b-toggle.sidebar-1>
+                <b-icon-star></b-icon-star><a> ¡Temporada de Fanarts!</a>
+              </b-dropdown-item>
               <b-dropdown-item @click.prevent="cargarPerfil">
                 <b-icon-heart></b-icon-heart><a> Mis Favoritos</a>
-              </b-dropdown-item>
-              <b-dropdown-item v-b-toggle.sidebar-1>
-                <b-icon-star></b-icon-star><a> ¡Temporada de Fanarts!</a>
               </b-dropdown-item>
               <b-dropdown-item @click.prevent="logout">
                 <b-icon-power></b-icon-power><a> Cerrar sesión</a>

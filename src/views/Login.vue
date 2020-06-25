@@ -6,8 +6,8 @@
         <b-card header="Inicia Sesión" title="Si ya cuentas con un perfil, ingresa tus datos aquí:">
           <b-form @submit.stop.prevent="login">
             <div>
-              <label for="feedback-user">Email</label>
-              <b-input v-model="email" id="feedback-user" required></b-input>
+              <label for="feedback-user" >Email</label>
+              <b-input v-model="email" id="feedback-user" required type="email"></b-input>
             </div>
             <div>
               <label for="text-password">Contraseña</label>

@@ -1,9 +1,9 @@
 <template>
-  <div>
-    <b-sidebar class="sidebar" id="sidebar-1" title="Encuesta Dibujistica" shadow>
+  <div class="sidebar">
+    <b-sidebar id="sidebar-1" title="Encuesta Dibujistica" shadow>
       <div class="px-4 py-2">
         <p>
-          ¿Te gusta Studios Ghibli? <b-icon-heart></b-icon-heart>
+          ¿Te gusta Studios Ghibli? <b-icon-star></b-icon-star>
           ¡Seleciona tus peliculas favoritas para crear fan art en su honor!
         </p>
       </div>
@@ -43,16 +43,6 @@ export default {
     this.pelis();
     console.log("HOLI");
   },
-
-  actions: {
-    async pelisSel(selected) {
-      try {              
-        commit("pelisSel", selected);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-  },
   data() {
     return {
       selected: []
@@ -65,6 +55,11 @@ export default {
   background-color:  #e56ded;
   color:white;
   border-color: transparent;
+}
+
+.sidebar {
+font-family: "Dosis", sans-serif;
+font-weight: bold;
 }
 
 </style>

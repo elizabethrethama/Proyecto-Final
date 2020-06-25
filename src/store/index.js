@@ -10,7 +10,7 @@ export default new Vuex.Store({
     peliculasSel: [],
     perfil:{}
   },
-  //el weon de los mandados las mutaciones realizan los cambios en el state
+  //el loco de los mandados las mutaciones realizan los cambios en el state
   mutations: {
     llenarPeliculas(state, peliculasGet) {
       state.peliculas = peliculasGet
