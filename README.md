@@ -13,13 +13,21 @@ Permitirá a los potenciales clientes conocer el trabajo del autor y acceder a l
 Requerimientos.
 
 La aplicación debe utilizar:
+
 -Vue, Vue router y Vuex.
+
 -Librería de componentes para el desarrollo de la interfaz, esta puede ser Buefy, element UI, Bootstrap-Vue.
+
 -Presentar como mínimo 3 vistas con un flujo básico de interacción.
+
 -Página Principal: Portafolio e información.
+
 -Página de Login: El usuario puede ingresar.
+
 -Página de Productos: Usuario puede ver los productos. 
+
 -Diseñar un portafolio visual tipo carusel donde los usuarios puedan mirar los trabajos más destacados del autor.
+
 -Generar la opción de login dentro de la página web, para armar un listado de favoritos que el usuario pueda agregar o quitar de su lista, en este paso, se consume una api
 de los Studios Ghibli y se pregunta a través de una encuesta cuales son los films preferidos del usuario, esta información será guardada en el store. 
 
@@ -68,6 +76,21 @@ Mockup Vistas:
 - [ ] Vista página de productos.
 
 ![mockap pagina productos](https://user-images.githubusercontent.com/60222751/85234917-ed166180-b3de-11ea-9550-6c9bf1c78221.jpg)
+
+- [ ] Vista Slider de encuesta.
+
+![encuesta](https://user-images.githubusercontent.com/60222751/85774905-4804cd00-b6ed-11ea-91ca-778a59510e93.JPG)
+
+- [ ] Vista pagina favoritos.
+
+![favoritos](https://user-images.githubusercontent.com/60222751/85775002-610d7e00-b6ed-11ea-9122-76ba586ed8b9.JPG)
+
+
+Usuarios Firebase:
+
+- [ ] usuario.uno@gmail.com pass: 123456
+
+- [ ] usuario.dos@gmail.com pass: 654321
 
 - [ ] Project setup: npm install
 - [ ] Compiles and hot-reloads for development: npm run serve
