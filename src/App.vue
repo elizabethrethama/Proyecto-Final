@@ -13,14 +13,17 @@
               <template v-slot:button-content>
                 <em>{{user.email}}</em>
               </template>
-                <b-dropdown-item v-b-toggle.sidebar-1>
-                <b-icon-star></b-icon-star><a> ¡Temporada de Fanarts!</a>
+              <b-dropdown-item v-b-toggle.sidebar-1>
+                <b-icon-star></b-icon-star>
+                <a>¡Temporada de Fanarts!</a>
               </b-dropdown-item>
               <b-dropdown-item @click.prevent="cargarPerfil">
-                <b-icon-heart></b-icon-heart><a> Mis Favoritos</a>
+                <b-icon-heart></b-icon-heart>
+                <a>Mis Favoritos</a>
               </b-dropdown-item>
               <b-dropdown-item @click.prevent="logout">
-                <b-icon-power></b-icon-power><a> Cerrar sesión</a>
+                <b-icon-power></b-icon-power>
+                <a>Cerrar sesión</a>
               </b-dropdown-item>
             </b-nav-item-dropdown>
           </b-navbar-nav>
@@ -78,7 +81,7 @@
       </div>
     </div>
     <div>
-      <ListaPeliculas/>
+      <ListaPeliculas />
     </div>
   </div>
 </template>
@@ -86,12 +89,13 @@
 <script>
 import firebase from "firebase";
 import axios from "axios";
-import Vue from 'vue'
-import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
-import ListaPeliculas from '@/components/ListaPeliculas.vue'
+import Vue from "vue";
+import { BootstrapVue, BootstrapVueIcons } from "bootstrap-vue";
+import ListaPeliculas from "@/components/ListaPeliculas.vue";
+import { mapState, mapActions } from "vuex";
 
-Vue.use(BootstrapVue)
-Vue.use(BootstrapVueIcons)
+Vue.use(BootstrapVue);
+Vue.use(BootstrapVueIcons);
 
 export default {
   components: {
@@ -122,15 +126,17 @@ export default {
     },
     cargarPerfil() {
       this.$router.push("/perfil");
-    }
+    },
+    ...mapActions(["cargarUser"])
   },
   created() {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         this.user = user;
+        this.cargarUser(user)
       } else {
         this.user = null;
-      }
+      } 
     });
   }
 };

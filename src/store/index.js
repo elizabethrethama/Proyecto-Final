@@ -8,7 +8,12 @@ export default new Vuex.Store({
   state: {
     peliculas: [],
     peliculasSel: [],
-    perfil:{}
+    user: {}
+  },
+  getters: {
+    user: state => {
+      return state.user
+    }
   },
   //el loco de los mandados las mutaciones realizan los cambios en el state
   mutations: {
@@ -17,8 +22,9 @@ export default new Vuex.Store({
     }, llenarPeliculasSel(state, peliculasSel) {
       console.log(peliculasSel)
       state.peliculasSel = peliculasSel
-    },llenarPerfil(state,perfil){
-      state.perfil=perfil
+    }, cargarUser(state, user) {
+      console.log(user)
+      state.user = user
     }
   },
   //las acciones llaman a las mutaciones con el comit
@@ -35,14 +41,33 @@ export default new Vuex.Store({
         console.error(error);
       }
     },
-    async pelisSel({ commit },pelisSel) {
-        console.log("peru"+pelisSel)
-        commit('llenarPeliculasSel', pelisSel)
-
+    async pelisSel({ commit }, pelisSel) {
+      console.log("asd" + pelisSel)
+      const respuesta = await axios.post(
+        "https://rethama-portafolio.firebaseio.com/usuarios.json", { user: this.user, Favoritos: pelisSel }
+      );
+      commit('llenarPeliculasSel', pelisSel)
     },
-    async cargarPerfil({commit}){
-      
-      commit('llenarPerfil',{nombre:"jurelito"})
+    async cargarUser({ commit }, user) {
+      if (user) {
+        const respuesta = await axios.get(
+          "https://rethama-portafolio.firebaseio.com/usuarios.json"
+        );
+        const array = [];
+
+        Object.keys(respuesta.data).forEach((key) => {
+          array.push({ [key]: respuesta.data[key] });
+        });
+        const usuariocompleto = array.filter(item => { item && item.user && item.user == user })
+        if (usuariocompleto && Array.isArray(usuariocompleto) && usuariocompleto.length >= 0 && usuariocompleto[0].Favoritos) {
+          commit('pelisSel', usuariocompleto[0].Favoritos)
+        }
+
+        console.log("asd" + user.email)
+        commit('cargarUser', user.email)
+      } else {
+        return false;
+      }
     }
   }
 })
